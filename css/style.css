@@ -21,6 +21,7 @@ header {
     border-bottom: 1px solid var(--separator-color);
 }
 
+
 .post-list {
     margin: calc(var(--header-hight) + var(--indentation-between-posts)) 0 0 0;
     padding: 0;
@@ -66,14 +67,14 @@ header {
 }
 
 .title {
-    padding: 10px 0px;
+    padding: 10px 0 ;
     margin: 0;
 }
 
 
 .content {
     margin: 0;
-
+    white-space: pre-wrap;
 }
 
 .post-button {
@@ -91,7 +92,7 @@ header {
 
 .post-button:hover {
     
-    box-shadow: 0px 0px 10px black;
+    box-shadow: 0 0 10px black;
 }
 
 
@@ -116,6 +117,17 @@ header {
     border-width: 0;
     outline-width: 0;
     border-radius: 8px;
+}
+
+.search-text-field::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    width: 17px;
+    height: 16px;
+    background-image: url("../img/clear-text.svg");
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    margin-right: 2px;
+    cursor: pointer;
 }
  .header-container {
      height: 100%;
