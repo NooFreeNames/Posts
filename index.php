@@ -26,7 +26,8 @@ function highlight($text, $selected_text): string
         htmlentities(mb_substr($text,$firstIndex + $selected_text_len));
 }
 ?>
-
+<!--Сайт с svg -->
+<!--https://worldvectorlogo.com/ru/downloaded/google-chat-1-->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
