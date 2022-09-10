@@ -42,7 +42,7 @@ function highlight($text, $selected_text): string
 <body>
 <header>
     <nav class="header-container main-container">
-        <img class="logo" src="img/logo.svg" width="40" height="40"/>
+        <img class="logo" src="img/logo.svg" width="40" height="40" alt="Лого сайта"/>
         <form class="search-form" action="index.php" method="get" name="search-panel">
             <input class="search-text-field" placeholder="Поиск" type="search" name="s" value="<?php echo htmlentities($searchString);?>">
 <!--            <input class="send-button" type="submit">-->
