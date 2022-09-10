@@ -1,5 +1,5 @@
 :root {
-    --main-color: #63b77c;
+    --main-color: #00832D;
     --header-hight:50px;
     --indentation-between-posts:15px;
     --separator-color:#e7e8ec;
@@ -77,18 +77,29 @@ header {
     white-space: pre-wrap;
 }
 
-.post-button {
-    border-radius: 50%;
-
-    width: 50px;
-    height: 50px;
-
-    background-color: white;
-    bottom: 40px;
-    right: 40px;
-    position: fixed;
+.button {
+    color: white;
+    padding: 0 16px;
+    border-width: 0;
+    border-radius: 6px;
+    font-size: 13px;
+    height: 30px;
+    background-color:var(--main-color);
     cursor: pointer;
 }
+
+/*.post-button {*/
+/*    border-radius: 50%;*/
+
+/*    width: 50px;*/
+/*    height: 50px;*/
+
+/*    background-color: white;*/
+/*    bottom: 40px;*/
+/*    right: 40px;*/
+/*    position: fixed;*/
+/*    cursor: pointer;*/
+/*}*/
 
 .post-button:hover {
     
@@ -117,6 +128,7 @@ header {
     border-width: 0;
     outline-width: 0;
     border-radius: 8px;
+
 }
 
 .search-text-field::-webkit-search-cancel-button {
@@ -145,5 +157,9 @@ header {
     background-repeat: no-repeat;
 }
 .found-element {
+    color: white;
     background-color: var(--main-color);
+    border-radius: 6px;
+    padding: 0 5px;
+
 }

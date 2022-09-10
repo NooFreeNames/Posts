@@ -51,7 +51,7 @@ function highlight($text, $selected_text): string
            <img class="logo" src="img/logo.svg" width="40" height="40" alt="Лого сайта"/>
        </a>
         <form class="search-form" action="index.php" method="get" name="search-panel">
-            <input class="search-text-field" placeholder="Поиск" type="search" name="s" value="<?php echo htmlentities($searchString);?>">
+            <input class="search-text-field" placeholder="Поиск" autocomplete="off" type="search" name="s" value="<?php echo htmlentities($searchString);?>">
 <!--            <input class="send-button" type="submit">-->
         </form>
     </nav>
@@ -67,7 +67,7 @@ function highlight($text, $selected_text): string
                     <p>
                         <textarea class="post-input-field content-input-field content-font block" placeholder="Содержимое" name="content"></textarea>
                     </p>
-                    <input value="Опубликовать" class="block" type="submit">
+                    <input value="Опубликовать" class="button block" type="submit">
                 </form>
             </li>
             <?php foreach ($stmt as $row){ ?>
