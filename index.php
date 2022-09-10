@@ -6,7 +6,7 @@ if(isset($_GET['s'])) {
     $searchString =$_GET['s'];
 }
 
-$sql = "SELECT * FROM post WHERE LOCATE(:searchString, Title) > 0 or LOCATE(:searchString, Content) ORDER BY Id DESC";
+$sql = "SELECT * FROM post WHERE LOCATE(:searchString, Title) > 0 or LOCATE(:searchString, Text) ORDER BY Id DESC";
 $stmt = $conn->prepare($sql);
 $stmt->bindValue(":searchString", $searchString);
 $stmt->execute();
@@ -14,6 +14,10 @@ $stmt->execute();
 function highlight($text, $selected_text): string
 {
     /* Highlights text with color */
+    if (empty($text)) {
+        return '';
+    }
+
     $selected_text_len = mb_strlen($selected_text);
     $firstIndex = mb_stripos($text, $selected_text);
     if ($selected_text_len <= 0 || $firstIndex === false) {
@@ -69,7 +73,7 @@ function highlight($text, $selected_text): string
             <?php foreach ($stmt as $row){ ?>
                 <li class="post-container">
                     <h2 class="title title-font"><?php echo highlight($row["Title"], $searchString) ?></h2>
-                    <p class="content content-font"><?php echo highlight($row["Content"], $searchString) ?></p>
+                    <p class="content content-font"><?php echo highlight($row["Text"], $searchString) ?></p>
                 </li>
             <?php }?>
         </ul>
