@@ -13,6 +13,7 @@ $stmt->execute();
 
 function highlight($text, $selected_text): string
 {
+    /* Highlights text with color */
     $selected_text_len = mb_strlen($selected_text);
     $firstIndex = mb_stripos($text, $selected_text);
     if ($selected_text_len <= 0 || $firstIndex === false) {
