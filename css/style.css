@@ -1,5 +1,8 @@
 :root {
     --main-color: #63b77c;
+    --header-hight:50px;
+    --indentation-between-posts:15px;
+    --separator-color:#e7e8ec;
 }
 body {
     margin: 0;
@@ -9,12 +12,17 @@ body {
 }
 
 header {
-    height: 50px;
+
+    height: var(--header-hight);
     background-color: white;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    border-bottom: 1px solid var(--separator-color);
 }
 
 .post-list {
-    margin: 0;
+    margin: calc(var(--header-hight) + var(--indentation-between-posts)) 0 0 0;
     padding: 0;
 }
 
@@ -23,10 +31,10 @@ header {
     background-color: white;
     border-radius: 10px;
     padding: 15px 20px;
-    margin: 15px 0;
+    margin: var(--indentation-between-posts) 0;
     list-style-type: none;
     text-align: left;
-    box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px #e7e8ec;
+    box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px var(--separator-color);
 
 }
 
