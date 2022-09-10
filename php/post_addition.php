@@ -6,7 +6,7 @@ if (!empty($_POST['title'])) {
 
     $stmt = $conn->prepare($sql);
     $stmt->bindValue(":title", $_POST["title"]);
-    $stmt->bindValue(":text", $_POST["Text"] ?? '');
+    $stmt->bindValue(":text", $_POST["text"] ?? '');
     $stmt->execute();
 }
 header('Location: ../index.php');
