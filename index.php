@@ -65,7 +65,7 @@ function highlight($text, $selected_text): string
                 <form action="php/post_addition.php" method="post">
                     <input class="post-input-field title-input-field title-font block" type="text" placeholder="Заголовок" name="title" maxlength="45"/>
                     <p>
-                        <textarea class="post-input-field content-input-field content-font block" placeholder="Содержимое" name="content"></textarea>
+                        <textarea class="post-input-field content-input-field content-font block" placeholder="Содержимое" name="text"></textarea>
                     </p>
                     <input value="Опубликовать" class="button block" type="submit">
                 </form>
