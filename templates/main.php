@@ -10,6 +10,7 @@
                     <textarea class="post-input-field content-input-field content-font block" placeholder="Содержимое" name="text"></textarea>
                 </p>
                 <input value="Опубликовать" class="button block" type="submit">
+
             </form>
         </li>
         <?php foreach (GetPosts($conn, $searchString) as $row){ ?>
