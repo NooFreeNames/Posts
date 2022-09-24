@@ -9,5 +9,5 @@ if (!empty($_POST['title'])) {
     $stmt->bindValue(":text", $_POST["text"] ?? '');
     $stmt->execute();
 }
-header('Location: ../index.php');
+header('Location: index.php');
 exit();
