@@ -1,8 +1,9 @@
 :root {
     --main-color: #00832D;
-    --header-hight:50px;
-    --indentation-between-posts:15px;
-    --separator-color:#e7e8ec;
+    --header-hight: 50px;
+    --indentation-between-posts: 15px;
+    --separator-color: #e7e8ec;
+    --button-fontsize: 13px;
 }
 body {
     margin: 0;
@@ -39,6 +40,20 @@ header {
 
 }
 
+.post-form {
+    display: grid;
+    grid-template-columns: 65% 35%;
+}
+.post-creating-part {
+
+}
+.upload-image-button {
+
+}
+
+.upload-text {
+    font-size: var(--button-fontsize);
+}
 .post-input-field {
     border: 0;
     outline: 0;
@@ -82,7 +97,7 @@ header {
     padding: 0 16px;
     border-width: 0;
     border-radius: 6px;
-    font-size: 13px;
+    font-size: var(--button-fontsize);
     height: 30px;
     background-color:var(--main-color);
     cursor: pointer;
@@ -161,5 +176,4 @@ header {
     background-color: var(--main-color);
     border-radius: 6px;
     padding: 0 2px;
-
 }
