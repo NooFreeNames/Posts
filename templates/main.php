@@ -11,8 +11,8 @@
                         <textarea class="post-input-field content-input-field content-font block" placeholder="Содержимое" name="text"></textarea>
                     </p>
                 </div>
-                <div class="post-creating-part">
-
+                <div class="post-creating-part post-image-container">
+                    <img src="img/apex-predators.jpg" alt="Изображение поста" class="post-image">
                 </div>
                 <div class="post-creating-part">
                     <input value="Опубликовать" class="button " type="submit">

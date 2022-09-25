@@ -47,6 +47,16 @@ header {
 .post-creating-part {
 
 }
+
+.post-image {
+    max-width: 336px;
+    /*Попробовать ограничить размер поста*/
+}
+
+.post-image-container {
+    position: relative;
+}
+
 .upload-image-button {
 
 }
