@@ -38,15 +38,15 @@ header {
     text-align: left;
     box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px var(--separator-color);
 
+
+
 }
 
-.post-form {
+.post {
     display: grid;
     grid-template-columns: 65% 35%;
 }
-.post-creating-part {
 
-}
 
 .post-image {
     max-width: 336px;
@@ -63,6 +63,8 @@ header {
 
 .upload-text {
     font-size: var(--button-fontsize);
+    overflow: hidden;
+    white-space: nowrap;
 }
 .post-input-field {
     border: 0;
@@ -98,8 +100,13 @@ header {
 
 
 .content {
+    max-height: 200px;
+}
+
+.content {
     margin: 0;
     white-space: pre-wrap;
+    overflow: auto;
 }
 
 .button {

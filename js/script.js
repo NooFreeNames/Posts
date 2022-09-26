@@ -10,7 +10,7 @@ let change_handler = () => {
         let fileName = image_input.value.match(/[\/\\]([\w\d\s\.\-(\)]+)$/)[1];
 
         if (fileName.length > 22) {
-            fileName = fileName.slice(0, 21) + '...';
+            fileName = fileName.slice(0, 20) + '...';
         }
 
         upload_image_name.textContent = fileName;
