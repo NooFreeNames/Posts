@@ -24,16 +24,20 @@
                 </div>
             </form>
         </li>
-        <?php foreach (GetPosts($conn, $searchString) as $row){ ?>
+        <?php foreach (get_posts($conn, $searchString) as $row){ ?>
             <li class="post-container post">
 
-                    <div class="post-part a">
-                        <h2 class="title title-font"><?php echo highlight($row["Title"], $searchString) ?></h2>
-                        <p class="content content-font"><?php echo highlight($row["Text"], $searchString) ?></p>
-                    </div>
+                <div class="post-part a">
+                    <h2 class="title title-font"><?= highlight($row["Title"], $searchString) ?></h2>
+                    <?php if(!empty($row["Text"])):?>
+                        <p class="content content-font"><?= highlight($row["Text"], $searchString) ?></p>
+                    <?php endif; ?>
+                </div>
+                <?php if(!empty($row["Path"])):?>
                     <div class="post-part">
-                        <img src="img/apex-predators.jpg" alt="Изображение поста" class="post-image">
+                        <img src="<?= 'user_files/user_img/' . $row["Path"]?>" alt="Изображение поста" class="post-image">
                     </div>
+                <?php endif; ?>
 
             </li>
         <?php }?>

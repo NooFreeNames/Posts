@@ -4,9 +4,13 @@
  * @param string $searchString
  * @return PDOStatement
  */
-function GetPosts(PDO $conn, string $searchString): PDOStatement
+function get_posts(PDO $conn, string $searchString): PDOStatement
 {
-    $sql = "SELECT * FROM post WHERE LOCATE(:searchString, Title) > 0 or LOCATE(:searchString, Text) ORDER BY Id DESC";
+    $sql = "SELECT Title, Text, Path, PublicationDataTime FROM post 
+        LEFT OUTER JOIN post_has_image ON post_has_image.Post = post.Id 
+        LEFT OUTER JOIN image ON post_has_image.Image = image.Id
+        WHERE LOCATE(:searchString, Title) > 0 or LOCATE(:searchString, Text) 
+        ORDER BY PublicationDataTime DESC";
     $stmt = $conn->prepare($sql);
     $stmt->bindValue(":searchString", $searchString);
     $stmt->execute();
@@ -18,7 +22,7 @@ function GetPosts(PDO $conn, string $searchString): PDOStatement
  * @param string $selected_text
  * @return string
  */
-function highlight(string | null $text, string $selected_text): string
+function highlight(string|null $text, string $selected_text): string
 {
     if (empty($text)) {
         return '';
@@ -34,7 +38,7 @@ function highlight(string | null $text, string $selected_text): string
         '<span class="found-element">' .
         htmlentities(mb_substr($text, $firstIndex, $selected_text_len)) .
         '</span>' .
-        htmlentities(mb_substr($text,$firstIndex + $selected_text_len));
+        htmlentities(mb_substr($text, $firstIndex + $selected_text_len));
 }
 
 /**

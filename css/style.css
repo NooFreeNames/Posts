@@ -5,6 +5,7 @@
     --separator-color: #e7e8ec;
     --button-fontsize: 13px;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -13,7 +14,6 @@ body {
 }
 
 header {
-
     height: var(--header-hight);
     background-color: white;
     width: 100%;
@@ -21,7 +21,6 @@ header {
     position: fixed;
     border-bottom: 1px solid var(--separator-color);
 }
-
 
 .post-list {
     margin: calc(var(--header-hight) + var(--indentation-between-posts)) 0 0 0;
@@ -37,9 +36,6 @@ header {
     list-style-type: none;
     text-align: left;
     box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px var(--separator-color);
-
-
-
 }
 
 .post {
@@ -55,10 +51,6 @@ header {
 
 .post-image-container {
     position: relative;
-}
-
-.upload-image-button {
-
 }
 
 .upload-text {
@@ -134,7 +126,7 @@ header {
 /*}*/
 
 .post-button:hover {
-    
+
     box-shadow: 0 0 10px black;
 }
 
@@ -173,12 +165,12 @@ header {
     margin-right: 2px;
     cursor: pointer;
 }
- .header-container {
-     height: 100%;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
- }
+.header-container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .search-form {
 
 }

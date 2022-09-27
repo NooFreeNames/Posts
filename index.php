@@ -14,5 +14,3 @@ $layout = include_template('layout.php', [
 ]);
 
 echo $layout;
-
-
