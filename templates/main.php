@@ -25,20 +25,18 @@
             </form>
         </li>
         <?php foreach (get_posts($conn, $searchString) as $row){ ?>
-            <li class="post-container post">
-
-                <div class="post-part a">
-                    <h2 class="title title-font"><?= highlight($row["Title"], $searchString) ?></h2>
-                    <?php if(!empty($row["Text"])):?>
-                        <p class="content content-font"><?= highlight($row["Text"], $searchString) ?></p>
-                    <?php endif; ?>
-                </div>
-                <?php if(!empty($row["Path"])):?>
-                    <div class="post-part">
-                        <img src="<?= 'user_files/user_img/' . $row["Path"]?>" alt="Изображение поста" class="post-image">
-                    </div>
+            <li class="<?php if(empty($row["Path"])):?>post-without-image<?php else:?>post-with-image<?php endif; ?>">
+                <div id="avatar">A</div>
+                <div id="username">Username</div>
+                <div id="action-menu">...</div>
+                <h2 id="post-title"><?= highlight($row["Title"], $searchString) ?></h2>
+                <?php if(!empty($row["Text"])):?>
+                    <p id="post-text"><?= highlight($row["Text"], $searchString) ?></p>
                 <?php endif; ?>
-
+                <?php if(!empty($row["Path"])):?>
+                    <img id="post-image" src="<?= 'user_files/user_img/' . $row["Path"]?>" alt="Изображение поста" class="post-image">
+                <?php endif; ?>
+                <div id="post-date">Вчера 18:55</div>
             </li>
         <?php }?>
     </ul>

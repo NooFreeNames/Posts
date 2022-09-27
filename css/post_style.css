@@ -1,0 +1,64 @@
+:root {
+    --avatar-size: 40px;
+    --indentation-between-posts: 15px;
+}
+.post-with-image, .post-without-image {
+    display: grid;
+
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin: var(--indentation-between-posts) 0;
+    list-style-type: none;
+    text-align: left;
+    box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px var(--separator-color);
+    box-sizing: border-box;
+    max-height: 450px;
+}
+.post-with-image {
+    grid-template-areas:
+        "avatar username username action-menu"
+        "post-title post-title post-image post-image"
+        "post-text post-text post-image post-image"
+        "post-date post-date post-date post-date";
+    grid-template-columns: var(--avatar-size) 1fr auto var(--avatar-size);
+    grid-template-rows: var(--avatar-size) auto 1fr auto;
+}
+.post-without-image {
+    grid-template-areas:
+        "avatar username action-menu"
+        "post-title post-title post-title"
+        "post-text post-text post-text"
+        "post-date post-date post-date";
+    grid-template-columns: var(--avatar-size) auto var(--avatar-size);
+    grid-template-rows: var(--avatar-size) auto 1fr auto;
+}
+#avatar {
+    grid-area: avatar;
+}
+#username {
+    grid-area: username;
+}
+#action-menu {
+    grid-area: action-menu;
+}
+#post-title {
+    grid-area: post-title;
+    margin: 0;
+}
+#post-text {
+    grid-area: post-text;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+#post-image {
+    grid-area: post-image;
+    max-height: 100%;
+    margin-left: 5px;
+}
+#post-date {
+    grid-area: post-date;
+    text-align: right;
+    margin-top: 5px;
+}

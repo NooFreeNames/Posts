@@ -1,4 +1,6 @@
 <?php
+print_r($_POST);
+print_r($_FILES);
 require_once ('db.php');
 
 if (!empty($_POST['title']) && ($_FILES['image']['error'] === UPLOAD_ERR_NO_FILE || $_FILES['image']['error'] === UPLOAD_ERR_OK)) {
