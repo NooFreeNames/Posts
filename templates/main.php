@@ -2,7 +2,7 @@
 <!--        <img src="img/plus.png" alt="+" width="50px" hight="50px"/>-->
 <!--    </a>-->
 <ul class="post-list">
-    <li class="post-container">
+    <li class="post-container post-list-item">
         <form class="post" action="post_addition.php" method="post" enctype="multipart/form-data">
             <div class="post-part">
                 <input class="post-input-field title-input-field title-font block" type="text" placeholder="Заголовок" name="title" maxlength="45"/>
@@ -23,12 +23,15 @@
             </div>
         </form>
     </li>
-    <?php foreach (get_posts($conn, $searchString) as $post) {
-        echo include_template('post.php', [
-                'post' => $post,
-                'searchString' => $searchString,
-                'is_post_preview' => true,
-        ]);
-    }?>
+    <?php foreach (get_posts($conn, $searchString) as $post) { ?>
+        <li class="post-list-item">
+            <?= include_template('post-template.php', [
+                    'post' => $post,
+                    'searchString' => $searchString,
+                    'is_post_preview' => true,
+            ]);
+            ?>
+        </li>
+    <?php } ?>
 </ul>
 <script src="js/script.js"></script>

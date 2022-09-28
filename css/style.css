@@ -26,9 +26,30 @@ header {
     border-bottom: 1px solid var(--separator-color);
 }
 
+main {
+    margin-top: calc(var(--header-hight) + var(--indentation-between-posts));
+}
+.page-block {
+    background-color: white;
+    border-radius: var(--border-radius-medium);
+    padding: 15px 20px;
+    margin: var(--indentation-between-posts) 0;
+    text-align: left;
+    box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px var(--separator-color);
+    box-sizing: border-box;
+}
+
+.display-none {
+    display: none;
+}
+
 .post-list {
-    margin: calc(var(--header-hight) + var(--indentation-between-posts)) 0 0 0;
+    margin: 0;
     padding: 0;
+}
+
+.post-list-item {
+    list-style-type: none;
 }
 
 .post-container {
@@ -142,7 +163,8 @@ header {
 }
 .main-container {
     width: 990px;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .search-text-field {

@@ -6,16 +6,6 @@
 }
 .post-with-image, .post-without-image {
     display: grid;
-
-    background-color: white;
-    border-radius: var(--border-radius-medium);
-    padding: 15px 20px;
-    margin: var(--indentation-between-posts) 0;
-    list-style-type: none;
-    text-align: left;
-    box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px var(--separator-color);
-    box-sizing: border-box;
-    max-height: 450px;
 }
 .post-with-image {
     grid-template-areas:
@@ -34,6 +24,9 @@
         "post-link post-link post-date post-date";
     grid-template-columns: var(--avatar-size) auto auto var(--avatar-size);
     grid-template-rows: var(--avatar-size) auto 1fr auto;
+}
+.post-preview {
+    max-height: 450px;
 }
 #avatar {
     grid-area: avatar;

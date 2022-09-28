@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
     if (isset($post)) {
         require_once 'data.php';
 
-        $post_page = include_template('post.php', [
+        $post_page = include_template('post-template.php', [
             'post' => $post,
             'searchString' => '',
             'is_post_preview' => false,
