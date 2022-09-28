@@ -6,7 +6,7 @@
  */
 function get_posts(PDO $conn, string $searchString): PDOStatement
 {
-    $sql = "SELECT Title, Text, Path, PublicationDataTime FROM post 
+    $sql = "SELECT post.Id AS Id, Title, Text, PublicationDataTime, Path FROM post 
         LEFT OUTER JOIN post_has_image ON post_has_image.Post = post.Id 
         LEFT OUTER JOIN image ON post_has_image.Image = image.Id
         WHERE LOCATE(:searchString, Title) > 0 or LOCATE(:searchString, Text) 
@@ -15,6 +15,21 @@ function get_posts(PDO $conn, string $searchString): PDOStatement
     $stmt->bindValue(":searchString", $searchString);
     $stmt->execute();
     return $stmt;
+}
+
+/**
+ * @param PDO $conn
+ * @param int $id
+ * @return array|false
+ */
+function get_post(PDO $conn, int $id): array | null  {
+    $sql = "SELECT post.Id AS Id, Title, Text, PublicationDataTime, Path FROM post 
+        LEFT OUTER JOIN post_has_image ON post_has_image.Post = post.Id 
+        LEFT OUTER JOIN image ON post_has_image.Image = image.Id
+        WHERE post.Id = $id";
+
+    $result = $conn->query($sql)->fetch();
+    return $result === false ? null : $result;
 }
 
 /**
