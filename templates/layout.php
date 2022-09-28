@@ -21,7 +21,10 @@
         </form>
     </nav>
 </header>
-<?=$main?>
+<main class="main-container">
+    <?=$main?>
+</main>
+
 
 </body>
 </html>

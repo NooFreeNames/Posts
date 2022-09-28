@@ -13,5 +13,4 @@ $layout = include_template('layout.php', [
     'title' => $title,
 ]);
 
-
 echo $layout;

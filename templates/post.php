@@ -10,7 +10,8 @@
         <img id="post-image" src="<?= 'user_files/user_img/' . $post["Path"]?>" alt="Изображение поста" class="post-image">
     <?php endif; ?>
     <div id="post-link">
-        <a href="index.php" id="post-link" class="link">Открыть пост</a>
+        <a href="post.php?id=<?=$post["Id"]?>" id="post-link" class="link">Открыть пост</a>
     </div>
+
     <div id="post-date">Вчера 18:55</div>
 </li>
