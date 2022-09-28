@@ -1,6 +1,7 @@
 :root {
     --avatar-size: 40px;
     --indentation-between-posts: 15px;
+    --post-footer-margin: 5px;
 }
 .post-with-image, .post-without-image {
     display: grid;
@@ -20,17 +21,17 @@
         "avatar username username action-menu"
         "post-title post-title post-image post-image"
         "post-text post-text post-image post-image"
-        "post-date post-date post-date post-date";
+        "post-link post-link post-date post-date";
     grid-template-columns: var(--avatar-size) 1fr auto var(--avatar-size);
     grid-template-rows: var(--avatar-size) auto 1fr auto;
 }
 .post-without-image {
     grid-template-areas:
-        "avatar username action-menu"
-        "post-title post-title post-title"
-        "post-text post-text post-text"
-        "post-date post-date post-date";
-    grid-template-columns: var(--avatar-size) auto var(--avatar-size);
+        "avatar username username action-menu"
+        "post-title post-title post-title post-title"
+        "post-text post-text post-text post-text"
+        "post-link post-link post-date post-date";
+    grid-template-columns: var(--avatar-size) auto auto var(--avatar-size);
     grid-template-rows: var(--avatar-size) auto 1fr auto;
 }
 #avatar {
@@ -51,14 +52,19 @@
     overflow: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
+
 }
 #post-image {
     grid-area: post-image;
     max-height: 100%;
     margin-left: 5px;
 }
+#post-link {
+    grid-area: post-link;
+    margin-top: var(--post-footer-margin);
+}
 #post-date {
     grid-area: post-date;
     text-align: right;
-    margin-top: 5px;
+    margin-top: var(--post-footer-margin);
 }
