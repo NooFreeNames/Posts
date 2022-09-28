@@ -24,21 +24,12 @@
                 </div>
             </form>
         </li>
-        <?php foreach (get_posts($conn, $searchString) as $row){ ?>
-            <li class="<?php if(empty($row["Path"])):?>post-without-image<?php else:?>post-with-image<?php endif; ?>">
-                <div id="avatar">A</div>
-                <div id="username">Username</div>
-                <div id="action-menu">...</div>
-                <h2 id="post-title"><?= highlight($row["Title"], $searchString) ?></h2>
-                <?php if(!empty($row["Text"])):?>
-                    <p id="post-text"><?= highlight($row["Text"], $searchString) ?></p>
-                <?php endif; ?>
-                <?php if(!empty($row["Path"])):?>
-                    <img id="post-image" src="<?= 'user_files/user_img/' . $row["Path"]?>" alt="Изображение поста" class="post-image">
-                <?php endif; ?>
-                <div id="post-date">Вчера 18:55</div>
-            </li>
-        <?php }?>
+        <?php foreach (get_posts($conn, $searchString) as $post) {
+            echo include_template('post.php', [
+                    'post' => $post,
+                    'searchString' => $searchString,
+            ]);
+        }?>
     </ul>
     <script src="js/script.js"></script>
 </main>
