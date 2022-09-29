@@ -23,7 +23,7 @@
             </div>
         </form>
     </li>
-    <?php foreach (get_posts($conn, $searchString) as $post) { ?>
+    <?php foreach (find_posts($conn, $searchString) as $post) { ?>
         <li class="post-list-item">
             <?= include_template('post-template.php', [
                     'post' => $post,

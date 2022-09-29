@@ -1,18 +1,31 @@
 <?php
 /**
  * @param PDO $conn
- * @param string $searchString
+ * @param string $search_string
  * @return PDOStatement
  */
-function get_posts(PDO $conn, string $searchString): PDOStatement
+function find_posts(PDO $conn, string $search_string) : PDOStatement
 {
-    $sql = "SELECT post.Id AS Id, Title, Text, PublicationDataTime, Path FROM post 
+    $search_string = trim($search_string);
+    $select = "SELECT post.Id AS Id, Title, Text, PublicationDataTime, Path FROM post 
         LEFT OUTER JOIN post_has_image ON post_has_image.Post = post.Id 
-        LEFT OUTER JOIN image ON post_has_image.Image = image.Id
-        WHERE LOCATE(:searchString, Title) > 0 or LOCATE(:searchString, Text) 
-        ORDER BY PublicationDataTime DESC";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindValue(":searchString", $searchString);
+        LEFT OUTER JOIN image ON post_has_image.Image = image.Id ";
+    $concat = 'CONCAT(Title, Text)';
+    $order_by = "ORDER BY LOCATE(:search_string, $concat) = 0, ";
+    $words = explode(' ', $search_string);
+
+    $sql = $select . "WHERE LOCATE(:search_string, $concat) > 0 ";
+    for ($i = 0; $i < count($words) && count($words) > 1; $i++) {
+        $locate = "LOCATE(:word$i, $concat)";
+        $sql .= "or $locate > 1 ";
+        $order_by .= "$locate = 0, ";
+    }
+
+    $stmt = $conn->prepare($sql . $order_by . 'PublicationDataTime DESC');
+    $stmt->bindValue(":search_string", $search_string);
+    for ($i = 0; $i < count($words) && count($words) > 1; $i++) {
+        $stmt->bindValue(":word$i", $words[$i]);
+    }
     $stmt->execute();
     return $stmt;
 }
