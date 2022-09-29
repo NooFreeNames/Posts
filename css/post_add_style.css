@@ -1,0 +1,37 @@
+.post-form {
+    display: grid;
+    grid-template-areas:
+        "post-title-preview post-title-preview post-image-preview post-image-preview"
+        "post-text-preview post-text-preview post-image-preview post-image-preview"
+        "post-text-preview post-text-preview post-image-preview post-image-preview"
+        "add-bar add-bar add-bar post-submit";
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-rows: var(--avatar-size) auto 1fr auto;
+}
+#post-title-preview {
+    grid-area: post-title-preview;
+}
+
+#post-image-preview {
+    grid-area: post-image-preview;
+    max-height: 100%;
+    max-width: 500px;
+}
+
+#post-text-preview {
+    grid-area: post-text-preview;
+}
+#add-bar, #post-submit {
+    margin-top: var(--post-footer-margin)
+}
+
+#add-bar {
+    grid-area: add-bar;
+    max-width: 300px;
+}
+
+#post-submit {
+    margin-top: auto;
+    grid-area: post-submit;
+    margin-bottom: 0;
+}

@@ -2,25 +2,17 @@
 <!--        <img src="img/plus.png" alt="+" width="50px" hight="50px"/>-->
 <!--    </a>-->
 <ul class="post-list">
-    <li class="post-container post-list-item">
-        <form class="post" action="post_addition.php" method="post" enctype="multipart/form-data">
-            <div class="post-part">
-                <input class="post-input-field title-input-field title-font block" type="text" placeholder="Заголовок" name="title" maxlength="45"/>
-                <p>
-                    <textarea class="post-input-field content-input-field content-font block" placeholder="Содержимое" name="text"></textarea>
-                </p>
+    <li class="post-list-item">
+        <form class="page-block post-form" action="post_addition.php" method="post" enctype="multipart/form-data">
+            <input id="post-title-preview" class="post-input-field title-input-field title-font block" type="text" placeholder="Заголовок" name="title" maxlength="45"/>
+            <textarea id="post-text-preview" class="post-input-field content-input-field content-font block" placeholder="Содержимое" name="text"></textarea>
+            <img id="post-image-preview" src="img/apex-predators.jpg" alt="Изображение поста">
+            <div id="add-bar">
+                <input name="image" id="upload-image" type="file" accept="image/png, image/gif, image/jpeg" hidden="hidden">
+                <input id="add-bar" type="button" class="button upload-image-button" value="Загрузить изображение">
+                <span id="add-bar" class="upload-text" id="upload-text">Файл не выбран</span>
             </div>
-            <div class="post-part post-image-container">
-                <img src="img/apex-predators.jpg" alt="Изображение поста" class="post-image">
-            </div>
-            <div class="post-part">
-                <input value="Опубликовать" class="button " type="submit">
-            </div>
-            <div class="post-part">
-                <input name="image" id="upload-image" type="file" hidden="hidden">
-                <input type="button" class="button upload-image-button" value="Загрузить изображение">
-                <span class="upload-text" id="upload-text">Файл не выбран</span>
-            </div>
+            <input id="post-submit" value="Опубликовать" class="button " type="submit">
         </form>
     </li>
     <?php foreach (find_posts($conn, $searchString) as $post) { ?>
