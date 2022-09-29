@@ -63,17 +63,6 @@ main {
     box-shadow: 0 1px 0 0 #dce1e6, 0 0 0 1px var(--separator-color);
 }
 
-/*.post {*/
-/*    display: grid;*/
-/*    grid-template-columns: 65% 35%;*/
-/*}*/
-
-
-.post-image {
-    max-width: 336px;
-    /*Попробовать ограничить размер поста*/
-}
-
 .post-image-container {
     position: relative;
 }
