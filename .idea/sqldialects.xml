@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/data.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/functions.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/index.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/post_addition.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/posts_db.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/queries.sql" dialect="GenericSQL" />
   </component>
 </project>
