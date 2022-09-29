@@ -17,7 +17,7 @@ function find_posts(PDO $conn, string $search_string) : PDOStatement
     $sql = $select . "WHERE LOCATE(:search_string, $concat) > 0 ";
     for ($i = 0; $i < count($words) && count($words) > 1; $i++) {
         $locate = "LOCATE(:word$i, $concat)";
-        $sql .= "or $locate > 1 ";
+        $sql .= "or $locate > 0 ";
         $order_by .= "$locate = 0, ";
     }
 
