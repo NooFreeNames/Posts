@@ -1,7 +1,7 @@
 :root {
     --avatar-size: 40px;
     --indentation-between-posts: 15px;
-    --post-footer-margin: 5px;
+    --post-footer-margin: 20px;
 
 }
 .post-with-image, .post-without-image {
@@ -37,6 +37,10 @@
 #action-menu {
     grid-area: action-menu;
 }
+#post-title, #post-text {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
 #post-title {
     grid-area: post-title;
     margin: 0;
@@ -44,8 +48,7 @@
 #post-text {
     grid-area: post-text;
     overflow: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+    margin-bottom: 0;
 
 }
 #post-image {
