@@ -9,8 +9,8 @@
             <img id="post-image-preview" src="img/apex-predators.jpg" alt="Изображение поста">
             <div id="add-bar">
                 <input name="image" id="upload-image" type="file" accept="image/png, image/gif, image/jpeg" hidden="hidden">
-                <input id="add-bar" type="button" class="button upload-image-button" value="Загрузить изображение">
-                <span id="add-bar" class="upload-text" id="upload-text">Файл не выбран</span>
+                <input type="button" class="button upload-image-button" value="Загрузить изображение">
+                <span class="upload-text" id="upload-text">Файл не выбран</span>
             </div>
             <input id="post-submit" value="Опубликовать" class="button " type="submit">
         </form>

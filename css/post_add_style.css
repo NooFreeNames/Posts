@@ -31,7 +31,6 @@
 }
 
 #post-submit {
-    margin-top: auto;
     grid-area: post-submit;
     margin-bottom: 0;
 }
