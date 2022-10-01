@@ -11,8 +11,13 @@
     <title><?=$title?></title>
 </head>
 <body>
-    <header>
-        <nav class="header-container main-container">
+<main id="pageMain">
+    <div class="main-container">
+        <?=$main?>
+    </div>
+</main>
+<header id="pageHeader">
+    <nav class="header-container main-container">
             <a href="">
                 <img class="logo" src="img/logo.svg" width="40" height="40" alt="Лого сайта"/>
             </a>
@@ -22,9 +27,6 @@
             </form>
         </nav>
     </header>
-    <main class="main-container">
-        <?=$main?>
-    </main>
 
 
 </body>
