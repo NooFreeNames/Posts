@@ -7,14 +7,7 @@ let click_redirection = () => {
 let change_handler = () => {
     if (image_input.value) {
 
-        // let fileName = image_input.value.match(/[^\/\\:*?"<>|]+(.png|.gif|.jpg)$/
-        let range_counter = 0;
-        let path_index = image_input.value.length;
-        while (image_input.value[path_index] !== '\\') {
-            range_counter--;
-            path_index--;
-        }
-        let fileName = image_input.value.slice(range_counter + 1);
+        let fileName = image_input.value.slice(image_input.value.lastIndexOf('\\') + 1);
 
         if (fileName.length > 22) {
             fileName = fileName.slice(0, 20) + '...';
