@@ -21,3 +21,10 @@ let change_handler = () => {
 }
 upload_image_button.addEventListener('click', click_redirection);
 image_input.addEventListener('change', change_handler);
+
+// const all_buttons = document.querySelector(".button");
+//
+// let button_click_handler = (evt) => {
+//     console.log(evt)
+// }
+// all_buttons.addEventListener('click', button_click_handler);
