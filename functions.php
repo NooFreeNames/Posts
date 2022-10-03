@@ -7,27 +7,46 @@
 function find_posts(PDO $conn, string $search_string) : PDOStatement
 {
     $search_string = trim($search_string);
-    $select = "SELECT post.Id AS Id, Title, Text, PublicationDataTime, Path FROM post 
+    $sql = "SELECT post.Id AS Id, Title, Text, PublicationDataTime, Path FROM post 
         LEFT OUTER JOIN post_has_image ON post_has_image.Post = post.Id 
         LEFT OUTER JOIN image ON post_has_image.Image = image.Id ";
-    $concat = 'CONCAT(Title, Text)';
-    $order_by = "ORDER BY LOCATE(:search_string, $concat) = 0, ";
-    $words = explode(' ', $search_string);
-
-    $sql = $select . "WHERE LOCATE(:search_string, $concat) > 0 ";
-    for ($i = 0; $i < count($words) && count($words) > 1; $i++) {
-        $locate = "LOCATE(:word$i, $concat)";
-        $sql .= "or $locate > 0 ";
-        $order_by .= "$locate = 0, ";
+    $order_by = "ORDER BY ";
+    if (empty($search_string)) {
+        return $conn->query($sql . $order_by . 'PublicationDataTime DESC');
     }
 
-    $stmt = $conn->prepare($sql . $order_by . 'PublicationDataTime DESC');
-    $stmt->bindValue(":search_string", $search_string);
-    for ($i = 0; $i < count($words) && count($words) > 1; $i++) {
+    $concat = 'CONCAT(Title, " ", Text)';
+
+    $words = preg_split('/[\s,_\-.]+/', $search_string);
+    $words_len = count($words);
+
+    $order_by_next = '';
+    if ($words_len > 1) {
+        $order_by .= "REGEXP_INSTR($concat, :search_regexp) = 0, ";
+        $order_by_next .= 'LOCATE(:search_string, Title) = 0, ';
+    }
+    $sql .= "WHERE 0 ";
+    for ($i = 0; $i < $words_len; $i++) {
+        $sql .= "or LOCATE(:word$i, $concat) != 0 ";
+        $order_by .= "REGEXP_INSTR($concat, :word_regexp$i) = 0, ";
+        $order_by_next .= "LOCATE(:word$i, Title) = 0,";
+    }
+
+
+    $stmt = $conn->prepare($sql . $order_by . $order_by_next . 'PublicationDataTime DESC');
+
+    echo $stmt->queryString;
+    if ($words_len > 1) {
+        $stmt->bindValue(":search_string", $search_string);
+        $stmt->bindValue(":search_regexp", "(^|[^а-яА-я\w])$search_string($|[^а-яА-я\w])");
+    }
+    for ($i = 0; $i < $words_len; $i++) {
         $stmt->bindValue(":word$i", $words[$i]);
+        $stmt->bindValue(":word_regexp$i", "(^|[^а-яА-я\w])$words[$i]($|[^а-яА-я\w])");
     }
     $stmt->execute();
     return $stmt;
+
 }
 
 /**
@@ -35,7 +54,7 @@ function find_posts(PDO $conn, string $search_string) : PDOStatement
  * @param int $id
  * @return array|false
  */
-function get_post(PDO $conn, int $id): array | null  {
+function get_post(PDO $conn, int $id): array|null  {
     $sql = "SELECT post.Id AS Id, Title, Text, PublicationDataTime, Path FROM post 
         LEFT OUTER JOIN post_has_image ON post_has_image.Post = post.Id 
         LEFT OUTER JOIN image ON post_has_image.Image = image.Id

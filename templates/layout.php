@@ -17,16 +17,16 @@
     </div>
 </main>
 <header id="pageHeader">
-    <nav class="header-container main-container">
-            <a href="">
-                <img class="logo" src="img/logo.svg" width="40" height="40" alt="Лого сайта"/>
-            </a>
-            <form class="search-form" action="#" method="get" name="search-panel">
-                <input class="search-text-field" placeholder="Поиск" autocomplete="off" type="search" name="s" value="<?php echo htmlentities($searchString);?>">
-                <!--            <input class="send-button" type="submit">-->
-            </form>
-        </nav>
-    </header>
+<nav class="header-container main-container">
+        <a href="">
+            <img class="logo" src="img/logo.svg" width="40" height="40" alt="Лого сайта"/>
+        </a>
+        <form class="search-form" action="index.php" method="get" name="search-panel">
+            <input class="search-text-field" placeholder="Поиск" autocomplete="off" type="search" name="s" value="<?php echo htmlentities($searchString);?>">
+            <!--            <input class="send-button" type="submit">-->
+        </form>
+    </nav>
+</header>
 
 
 </body>

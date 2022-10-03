@@ -14,7 +14,7 @@
     <?php else:?>
         <a href='index.php#<?='post' . $post['Id']?>' id='post-link' class='link'>Вернуться на главную</a>
     <?php endif;?>
-    <div id="post-date">Вчера 18:55</div>
+    <div id="post-date"><?=$post['PublicationDataTime']?></div>
 </div>
 <?php if(!$is_post_preview): ?>
     <div class="page-block">
