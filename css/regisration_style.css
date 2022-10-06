@@ -1,0 +1,6 @@
+.authorisation-form {
+    dispay: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto;
+
+}

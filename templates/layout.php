@@ -7,6 +7,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/post_style.css" rel="stylesheet">
     <link href="css/post_add_style.css" rel="stylesheet">
+    <link href="css/registration_style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title><?=$title?></title>
 </head>
@@ -21,8 +22,7 @@
             <!--            <input class="send-button" type="submit">-->
         </form>
     </nav>
-</header>
-
+</header>z
 <main id="pageMain">
     <div class="main-container">
         <?=$main?>
