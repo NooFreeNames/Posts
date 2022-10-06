@@ -35,7 +35,6 @@ function find_posts(PDO $conn, string $search_string) : PDOStatement
 
     $stmt = $conn->prepare($sql . $order_by . $order_by_next . 'PublicationDataTime DESC');
 
-    echo $stmt->queryString;
     if ($words_len > 1) {
         $stmt->bindValue(":search_string", $search_string);
         $stmt->bindValue(":search_regexp", "(^|[^а-яА-я\w])$search_string($|[^а-яА-я\w])");

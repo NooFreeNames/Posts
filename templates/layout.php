@@ -11,11 +11,6 @@
     <title><?=$title?></title>
 </head>
 <body>
-<main id="pageMain">
-    <div class="main-container">
-        <?=$main?>
-    </div>
-</main>
 <header id="pageHeader">
 <nav class="header-container main-container">
         <a href="">
@@ -28,6 +23,10 @@
     </nav>
 </header>
 
-
+<main id="pageMain">
+    <div class="main-container">
+        <?=$main?>
+    </div>
+</main>
 </body>
 </html>
